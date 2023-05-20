@@ -18,15 +18,19 @@ const AuthSocialButton: React.FC<AuthSocialButtonProps> = ({
         w-full
         justify-center
         rounded-md
-        bg-gray-800
+        bg-white
+        dark:bg-gray-800
         px-4
         py-2
-        text-gray-100
+        text-gray-600
+        dark:text-gray-100
         shadow-sm
         ring-1
         ring-inset
-        ring-gray-600
-        hover:bg-gray-500
+        ring-gray-300
+        dark:ring-gray-600
+        hover:bg-gray-50
+        dark:hover:bg-gray-500
         focus:outline-offset-0
       "
     >

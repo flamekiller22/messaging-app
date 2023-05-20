@@ -12,7 +12,8 @@ export default function page() {
         py-12
         sm:px-6
         lg:px-8
-        bg-gray-800
+        bg-gray-100
+        dark:bg-gray-800
       "
     >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -20,7 +21,7 @@ export default function page() {
           alt="logo"
           height={48}
           width={48}
-          className="mx-auto w-auto invert"
+          className="mx-auto w-auto dark:invert"
           src="/images/logo.png"
         />
         <h2
@@ -30,10 +31,11 @@ export default function page() {
             text-3xl
             font-bold
             tracking-tight
-            text-gray-100
+            text-gray-900
+            dark:text-gray-100
           "
         >
-          Sign in to your account
+          Welcome to FlameChat
         </h2>
       </div>
       <AuthForm />

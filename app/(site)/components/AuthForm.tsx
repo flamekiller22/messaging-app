@@ -26,12 +26,15 @@ export default function AuthForm() {
     handleSubmit,
     formState: {
       errors
-    }
+    },
+    watch
   } = useForm<FieldValues>({
+    mode: 'onChange',
     defaultValues: {
       name: '',
       email: '',
       password: '',
+      passwordRepeat: '',
     }
   });
 
@@ -65,7 +68,8 @@ export default function AuthForm() {
       >
         <div
           className="
-            bg-gray-900
+            bg-white
+            dark:bg-gray-900
             px-4
             py-8
             shadow
@@ -106,9 +110,24 @@ export default function AuthForm() {
               register={register}
               required={true}
               minLength={8}
-              maxLength={16}
+              maxLength={64}
               errors={errors}
             />
+            { variant === 'REGISTER' && (
+              <Input 
+                id="passwordRepeat"
+                label="Re-enter Password"
+                type="password"
+                register={register}
+                required={true}
+                validate={(val: string) => {
+                  if (watch('password') != val) {
+                    return "Your passwords do no match";
+                  }
+                }}
+                errors={errors}
+              />
+            )}
             <div>
               <Button
                 disabled={isLoading}
@@ -147,9 +166,11 @@ export default function AuthForm() {
               >
                 <span 
                   className="
-                    bg-gray-900 
-                    px-2 
-                    text-gray-300
+                    bg-white
+                    dark:bg-gray-900 
+                    px-2
+                    text-gray-400
+                    dark:text-gray-300
                   "
                 >
                   Or continue with
