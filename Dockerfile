@@ -11,6 +11,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./ 
 RUN npm ci
 
+RUN npx prisma generate
+
 # Rebuild the source code only when needed
 FROM node:18-alpine AS builder
 WORKDIR /app
